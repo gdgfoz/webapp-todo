@@ -1,0 +1,101 @@
+<header>
+  <acme-navbar creation-date="main.creationDate"></acme-navbar>
+</header>
+<div  layout="column" ng-cloak="" >
+
+  <section layout="row" flex="">
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2 md-padding" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <span class="md-display-1 mg-bottom-30">Categorias</span>
+
+      <ul class="nav-todo">
+        <li ng-repeat="li in todo.categorias">
+          <a href="#" class="no-style md-title">{{li.nome}}</a>
+        </li>
+      </ul>
+
+    </md-sidenav>
+
+    <md-content flex="" layout-padding="" class="bg-gray">
+
+      <div flex class="new-task" layout="row" layout-align="space-between center">
+          <md-input-container flex md-no-float="">
+            <input ng-model="row.assunto" type="text" placeholder="&oplus; Todo" md-autofocus="">
+          </md-input-container>
+          <div class="buttons">
+                  <md-button class="md-icon-button md-primary" aria-label="More">
+                      <i class="ion ion-android-add-circle"></i>
+                  </md-button>
+                  <md-button ng-click="toggleRight()" class="md-icon-button md-accent" aria-label="More">
+                      <i class="ion ion-edit"></i>
+                  </md-button>
+                  <md-button class="md-icon-button md-warn" aria-label="More">
+                      <i class="ion ion-ios-star-outline"></i>
+                  </md-button>
+          </div>
+      </div>
+
+
+      <div flex ng-repeat="ite in [1,2]" class="cat-item">
+              <h1 class="gray-title">Hoje</h1>
+              <div ng-repeat="subite in [1,2,3,4]" flex class="todo" layout="row" layout-align="space-between center">
+                  <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1"> </md-checkbox>
+                  <p flex  ng-dblclick="toggleRight()">amet offici ditiis!amet offici ditiis!</p>
+                  <small class="data">04/09/2015</small>
+
+                  <md-button ng-click="favoritar()" class="md-icon-button" aria-label="More">
+                      <i class="ion" ng-class="todo.isFavorite ? 'ion-ios-star' : 'ion-ios-star-outline'"></i>
+                  </md-button>
+              </div>
+          </div>
+
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
+
+      <md-toolbar class="md-theme-light" layout="row" layout-align="space-between start"ng-controller="RightCtrl" >
+        <h1 class="md-toolbar-tools">Todo</h1>
+        <md-button ng-click="close()" class="md-warn md-icon-button">
+          <i class="ion ion-close-circled"></i>
+        </md-button>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" class="md-padding">
+        <form>
+          <md-input-container>
+            <label >Assunto</label>
+            <input ng-model="row.assunto" >
+          </md-input-container>
+          <md-datepicker flex ng-model="row.deadline" md-placeholder="Dead line"></md-datepicker>
+          <md-input-container>
+           <label>Categoria</label>
+           <md-select ng-model="row.categoria_id">
+             <md-option ng-repeat="state in todo.categorias" value="{{state.id}}">
+               {{state.nome}}
+             </md-option>
+           </md-select>
+       </md-input-container>
+          <md-input-container class="md-block">
+          <label>Descrição</label>
+          <textarea ng-model="row.descricao" md-maxlength="350" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-checkbox ng-model="row.detacado" aria-label="Checkbox 1" class="block">
+          <span layout="row" flex layout-align="space-between center">  Destacar todo <i class="ion ion-star lg-icon"></i> </span>
+          </md-checkbox>
+        </form>
+
+      </md-content>
+      <div layout="row" layout-align="space-between center">
+          <md-button class="md-warn">Cancelar</md-button>
+          <md-button class="md-raised md-primary">Salvar</md-button>
+      </div>
+
+    </md-sidenav>
+
+  </section>
+
+</div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
