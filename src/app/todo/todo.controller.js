@@ -8,17 +8,22 @@
     .controller('RightCtrl', RightCtrl);
 
   /** @ngInject */
-  function TodoController($scope,  $mdSidenav) {
+  function TodoController($scope, $mdSidenav, $location, Auth) {
     var vm = this;
     vm.categorias = [];
     vm.isFavorite = true;
+
+    if( ! Auth.check() ){
+      $location.url('login');
+    }
 
     vm.categorias =[
       {nome: 'cat 1', id: 1},
       {nome: 'cat 2', id: 2},
       {nome: 'cat 3', id: 3},
       {nome: 'cat 4', id: 4}
-    ]
+    ];
+
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
 
