@@ -2,7 +2,8 @@
   'use strict';
 
   angular
-    .module('gdgfoz.core', []);
-
+    .module('gdgfoz.core', [
+      'toastr'
+    ]);
 
 })();

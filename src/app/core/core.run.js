@@ -1,13 +1,17 @@
+
+
 (function() {
   'use strict';
 
   angular
-    .module('webappTodo')
+    .module('gdgfoz.core')
     .run(runBlock);
 
   /** @ngInject */
   function runBlock($log) {
-    $log.info('Run block webtodo');
+
+    $log.info('Run core');
+
   }
 
 })();

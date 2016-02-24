@@ -8,31 +8,27 @@
   function routeConfig($routeProvider) {
 
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
       .when('/login', {
-        templateUrl: 'app/auth/login.html'
-        //controller: 'MainController',
-        //controllerAs: 'main'
+        templateUrl: 'app/main/auth/login.html',
+        controller: 'LoginController',
+        controllerAs: 'vm'
       })
       .when('/singup', {
-        templateUrl: 'app/auth/singup.html'
-        //controller: 'MainController',
-        //controllerAs: 'main'
+        templateUrl: 'app/main/auth/singup.html'
+        //controller: 'SingupController',
+        //controllerAs: 'vm'
       })
       .when('/remind', {
-        templateUrl: 'app/auth/remind.html'
-        //controller: 'MainController',
-        //controllerAs: 'main'
+        templateUrl: 'app/main/auth/remind.html'
+        //controller: 'RemindController',
+        //controllerAs: 'vm'
       })
       .when('/todo', {
-        templateUrl: 'app/todo/todo.html',
+        templateUrl: 'app/main/todo/todo.html',
         controller: 'TodoController',
         controllerAs: 'todo'
       })
+
       .otherwise({
         redirectTo: '/todo'
       });

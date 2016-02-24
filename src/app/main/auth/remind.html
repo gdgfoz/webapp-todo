@@ -7,21 +7,17 @@
       </div>
       <div class="md-padding">
         <p class="md-body-1">
-          Informe sua nova senha
+          Informe seu e-mail e em breve enviaremos intruções para sua redefinição de senha.
         </p>
         <md-input-container>
-            <label>Senha</label>
-            <input ng-model="user.password" type="password">
-        </md-input-container>
-        <md-input-container>
-            <label>Confirmar senha</label>
-            <input ng-model="user.passwordConfirm" type="password">
+            <label>E-mail</label>
+            <input ng-model="user.mail">
         </md-input-container>
 
       </div>
       <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary">Enviar</md-button>
           <md-button ng-href="#/login" class="md-warn">Cancelar</md-button>
+          <md-button class="md-raised md-primary">Enviar</md-button>
       </md-card-actions>
 
     </md-card>

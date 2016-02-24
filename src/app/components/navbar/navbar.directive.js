@@ -3,30 +3,29 @@
 
   angular
     .module('webappTodo')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('wtNavbar', navbarDirective);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function navbarDirective() {
+
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
+          title: '='
+      }
+      // controller: NavbarController,
+      // controllerAs: 'vm',
+      // bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
+    // function NavbarController() {
+    //   var vm = this;
+    // }
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
   }
 
 })();

@@ -1,5 +1,5 @@
 <header>
-  <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  <wt-navbar title="'Tarefas'"></wt-navbar>
 </header>
 <div  layout="column" ng-cloak="" >
 
@@ -26,7 +26,7 @@
                   <md-button class="md-icon-button md-primary" aria-label="More">
                       <i class="ion ion-android-add-circle"></i>
                   </md-button>
-                  <md-button ng-click="toggleRight()" class="md-icon-button md-accent" aria-label="More">
+                  <md-button ng-click="vm.toggleRight()" class="md-icon-button md-accent" aria-label="More">
                       <i class="ion ion-edit"></i>
                   </md-button>
                   <md-button class="md-icon-button md-warn" aria-label="More">
@@ -40,10 +40,10 @@
               <h1 class="gray-title">Hoje</h1>
               <div ng-repeat="subite in [1,2,3,4]" flex class="todo" layout="row" layout-align="space-between center">
                   <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1"> </md-checkbox>
-                  <p flex  ng-dblclick="toggleRight()">amet offici ditiis!amet offici ditiis!</p>
+                  <p flex  ng-dblclick="todo.toggleRight()">amet offici ditiis!amet offici ditiis!</p>
                   <small class="data">04/09/2015</small>
 
-                  <md-button ng-click="favoritar()" class="md-icon-button" aria-label="More">
+                  <md-button ng-click="todo.favoritar()" class="md-icon-button" aria-label="More">
                       <i class="ion" ng-class="todo.isFavorite ? 'ion-ios-star' : 'ion-ios-star-outline'"></i>
                   </md-button>
               </div>
@@ -51,15 +51,15 @@
 
     </md-content>
 
-    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" >
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
 
-      <md-toolbar class="md-theme-light" layout="row" layout-align="space-between start"ng-controller="RightCtrl" >
+      <md-toolbar class="md-theme-light" layout="row" layout-align="space-between start">
         <h1 class="md-toolbar-tools">Todo</h1>
-        <md-button ng-click="close()" class="md-warn md-icon-button">
+        <md-button ng-click="todo.close()" class="md-warn md-icon-button" aria-label="Close">
           <i class="ion ion-close-circled"></i>
         </md-button>
       </md-toolbar>
-      <md-content ng-controller="RightCtrl" class="md-padding">
+      <md-content class="md-padding">
         <form>
           <md-input-container>
             <label >Assunto</label>
@@ -94,8 +94,3 @@
   </section>
 
 </div>
-
-<!--
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
--->
