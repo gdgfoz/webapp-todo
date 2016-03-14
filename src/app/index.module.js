@@ -12,7 +12,8 @@
       'ngRoute',
       'ngMaterial',
       'toastr',
-      'gdgfoz.core'
+      'gdgfoz.core',
+      'angular-oauth2'
     ]);
 
 })();

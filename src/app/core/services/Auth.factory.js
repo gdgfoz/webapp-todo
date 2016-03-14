@@ -6,7 +6,7 @@
       .factory('Auth', authService);
 
       /** @ngInject */
-      function authService($http, $q, $log){
+      function authService($http, $q, $log, OAuth){
 
         var token = true;
 
@@ -21,14 +21,16 @@
 
         function check()
         {
-          return token;
+          return OAuth.isAuthenticated();
         }
 
         function login(credentials)
         {
           $log.info('Mock auth', credentials);
           token = true;
-          return $q.resolve(true);
+
+          return OAuth.getAccessToken(credentials);
+          //return $q.resolve(true);
           //Todo remove mock auth
 
           // var data = {
